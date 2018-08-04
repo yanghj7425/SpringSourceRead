@@ -1,4 +1,4 @@
-package com.yhj.hello.aop;
+package com.yhj.aop;
 
 import com.yhj.aop.BookBean;
 import com.yhj.aop.auto.AutoBook;

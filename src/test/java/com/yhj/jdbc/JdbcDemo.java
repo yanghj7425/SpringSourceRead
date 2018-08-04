@@ -1,4 +1,4 @@
-package com.yhj.hello.jdbc;
+package com.yhj.jdbc;
 
 import com.yhj.jdbc.entity.User;
 import com.yhj.jdbc.service.UserService;

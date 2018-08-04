@@ -1,4 +1,4 @@
-package com.yhj.hello.dateparse.customdateeditor;
+package com.yhj.dateparse.customdateeditor;
 
 import com.yhj.entity.Student;
 import org.junit.Test;

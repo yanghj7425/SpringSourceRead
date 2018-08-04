@@ -1,4 +1,4 @@
-package com.yhj.hello.mybatis;
+package com.yhj.mybatis;
 
 import com.yhj.mybatis.dao.StudentMapper;
 import com.yhj.mybatis.entity.Student;

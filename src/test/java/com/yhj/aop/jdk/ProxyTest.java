@@ -1,4 +1,4 @@
-package com.yhj.hello.aop.jdk;
+package com.yhj.aop.jdk;
 
 import com.yhj.aop.proxy.jdk.CustomInvocationHandler;
 import com.yhj.aop.proxy.jdk.UserService;

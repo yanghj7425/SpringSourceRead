@@ -1,4 +1,4 @@
-package com.yhj.hello.dateparse.propertyeditor;
+package com.yhj.dateparse.propertyeditor;
 
 import com.yhj.entity.Student;
 import org.junit.Test;

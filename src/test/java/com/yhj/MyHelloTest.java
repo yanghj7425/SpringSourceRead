@@ -1,4 +1,4 @@
-package com.yhj.hello;
+package com.yhj;
 
 import com.yhj.MyHello;
 import com.yhj.bean.attribute.constructor.Computer;
