@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<import resource="mybean.xml"/>
+	<import resource="beanFactory.xml"/>
+
+	<!--look-up attribute -->
+
+	<bean class="com.yhj.bean.attribute.lookup.Person" id="person">
+		<lookup-method name="getBean" bean="student"/>
+	</bean>
+
+	<bean class="com.yhj.bean.attribute.lookup.Teacher" id="teacher"/>
+	<bean class="com.yhj.bean.attribute.lookup.Student" id="student"/>
+
+	<!-- replace-method attribute -->
+	<bean class="com.yhj.bean.attribute.replaced.ChangeMethod" id="changeMethod">
+		<replaced-method name="changeMe" replacer="replacer">
+			<arg-type>String</arg-type>
+		</replaced-method>
+	</bean>
+
+	<bean class="com.yhj.bean.attribute.replaced.Replacer" id="replacer"/>
+
+	<!--constructor-org attribute-->
+	<bean class="com.yhj.bean.attribute.constructor.Computer" id="computer">
+		<constructor-arg index="0">
+			<value>12</value>
+		</constructor-arg>
+		<constructor-arg index="1">
+			<value>hh</value>
+		</constructor-arg>
+	</bean>
+
+
+</beans>

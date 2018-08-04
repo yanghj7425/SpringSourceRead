@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:myname="http://www.yanghj.com/schema/user"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.yanghj.com/schema/user http://www.yanghj.com/schema/user.xsd">
+
+	<!--<bean id="student" class="com.yhj.entity.Student">-->
+		<!--<property name="enrollTime" value="2018-14-04"/>-->
+	<!--</bean>-->
+
+	<bean id="dateFormat" class="java.text.SimpleDateFormat">
+		<constructor-arg value="yyyy-MM-dd"/>
+	</bean>
+
+	<bean id="student" class="com.yhj.entity.Student">
+		<property name="enrollTime">
+			<bean factory-bean="dateFormat" factory-method="parse">
+				<constructor-arg value="2018-14-04"/>
+			</bean>
+		</property>
+	</bean>
+
+
+	<bean class="com.yhj.MyHello" id="myHello" name="hello;hhh" autowire="byType">
+		<constructor-arg name="hStr" value="99999"/>
+	</bean>
+
+	<bean class="com.yhj.car.Car" id="car">
+		<property name="brand" value="阿斯顿发放"/>
+	</bean>
+
+
+	<!--<bean id="carFactory" class="com.yhj.car.CatFactoryBean">-->
+
+	<!--<property name="carInfo" value="2423,234,2342"/>-->
+	<!--</bean>-->
+	<bean class="com.yhj.MyTwo" id="myTwo">
+	</bean>
+
+	<myname:user id="testBean" userName="YHJ" email="yhj@1223.com"/>
+
+	<alias name="myTwo" alias="world"/>
+
+</beans>

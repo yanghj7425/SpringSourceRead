@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean class="com.yhj.beanFactory.ObscenityRemovingBeanFactoryPostProcessor">
+		<property name="obscenities">
+			<set>
+				<value>bollocks</value>
+				<value>winky</value>
+				<value>bum</value>
+				<value>Microsoft</value>
+			</set>
+
+		</property>
+	</bean>
+
+	<bean class="com.yhj.beanFactory.SimplePostProcessor" id="simplePostProcessor">
+		<property name="account" value="Microsoft"/>
+		<property name="password" value="winky"/>
+		<property name="maskString" value="unmask"/>
+	</bean>
+
+
+	<bean class="com.yhj.beanpostprocessor.CustomInstationWareBeanPostProcessor"/>
+
+	<!--<bean class="org.springframework.context.support.ConversionServiceFactoryBean" id="conversionService">-->
+		<!--<property name="converters">-->
+			<!--<list>-->
+				<!--<bean class="com.yhj.converter.String2DateConverter"/>-->
+			<!--</list>-->
+		<!--</property>-->
+	<!--</bean>-->
+
+</beans>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+	<bean class="com.yhj.aop.auto.AutoBook" id="autoBook"/>
+	<!--<bean class="com.yhj.aop.auto.AutoCat" id="autoCat"/>-->
+
+	<bean class="com.yhj.aop.aspect.AutoAspectJBook" id="aspectJBook"/>
+
+	<bean class="com.yhj.aop.proxy.jdk.impl.UserServiceI" id="userService"/>
+
+	<aop:aspectj-autoproxy proxy-target-class="true"/>
+
+	<context:load-time-weaver />
+
+	<!--<bean id="aspectJBook" class="com.yhj.aop.AspectJBook"/>-->
+
+	<!--<bean class="com.yhj.aop.BookBean" id="bookBean">-->
+	<!--</bean>-->
+
+	<!--<aop:config>-->
+	<!--<aop:aspect id="book" ref="aspectJBook">-->
+	<!--<aop:pointcut id="addAllMethod" expression="execution(* com.yhj.aop.BookBean.*(..))"/>-->
+	<!--<aop:before method="fuckAspect" pointcut-ref="addAllMethod"/>-->
+	<!--<aop:after method="fuckAspect" pointcut-ref="addAllMethod"/>-->
+	<!--</aop:aspect>-->
+
+	<!--</aop:config>-->
+
+</beans>
