@@ -6,7 +6,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Transactional(propagation = Propagation.REQUIRED, readOnly = true)
 public interface UserService {
 	List<User> queryAllUser();
 

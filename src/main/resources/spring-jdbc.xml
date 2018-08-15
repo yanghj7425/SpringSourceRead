@@ -1,37 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	   xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
-	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 
-	<context:property-placeholder location="classpath:jdbc.properties"/>
+    <context:property-placeholder location="classpath:jdbc.properties"/>
 
-	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
-		<property name="driverClassName" value="${jdbc.driver}"/>
-		<property name="url" value="${jdbc.url}"/>
-		<property name="username" value="${username}"/>
-		<property name="password" value="${password}"/>
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
 
-		<!--启动时线程尺大小-->
-		<property name="initialSize" value="${initSize}"/>
+        <!--启动时线程尺大小-->
+        <property name="initialSize" value="${initSize}"/>
 
-		<!--连接池最大值-->
-		<property name="maxActive" value="${maxActive}"/>
+        <!--连接池最大值-->
+        <property name="maxActive" value="${maxActive}"/>
 
-		<property name="minIdle" value="${minIdle}"/>
-	</bean>
+        <property name="minIdle" value="${minIdle}"/>
+    </bean>
 
-	<bean id="userService" class="com.yhj.jdbc.service.impl.UserServiceI">
-		<property name="dataSource" ref="dataSource"/>
-	</bean>
+    <bean id="userService" class="com.yhj.jdbc.service.impl.UserServiceI">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="gameService" ref="gameService"/>
+    </bean>
 
-	<tx:annotation-driven/>
+    <bean id="gameService" class="com.yhj.jdbc.service.impl.GameServiceI"/>
+
+    <tx:annotation-driven/>
 
 
-	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="dataSource"/>
-	</bean>
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
 
 
 </beans>

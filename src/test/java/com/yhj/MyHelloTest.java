@@ -1,6 +1,5 @@
 package com.yhj;
 
-import com.yhj.MyHello;
 import com.yhj.bean.attribute.constructor.Computer;
 import com.yhj.bean.attribute.lookup.Person;
 import com.yhj.bean.attribute.replaced.ChangeMethod;
