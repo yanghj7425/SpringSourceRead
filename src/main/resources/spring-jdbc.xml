@@ -22,15 +22,14 @@
         <property name="minIdle" value="${minIdle}"/>
     </bean>
 
+    <tx:annotation-driven/>
+
     <bean id="userService" class="com.yhj.jdbc.service.impl.UserServiceI">
         <property name="dataSource" ref="dataSource"/>
         <property name="gameService" ref="gameService"/>
     </bean>
 
     <bean id="gameService" class="com.yhj.jdbc.service.impl.GameServiceI"/>
-
-    <tx:annotation-driven/>
-
 
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>

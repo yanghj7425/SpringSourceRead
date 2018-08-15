@@ -5,3 +5,6 @@ out/*
 build.gradle
 gradlew.bat
 settings.gradle
+.idea/*
+*.iml
+target/*
